@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Login from '../Login'
 import Search from '../Search'
 import PrivateRoute from '../PrivateRoute'
@@ -13,12 +13,14 @@ import PrivateRoute from '../PrivateRoute'
 class Router extends PureComponent {
     render() {
         return (
-            <Switch>
-                <PrivateRoute path="/search" component={Search} />
-                <Route exact path="/" component={Login} />
-            </Switch>
+            <BrowserRouter>
+                <Switch>
+                    <PrivateRoute path="/search" component={Search} />
+                    <Route exact path="/" component={Login} />
+                </Switch>
+            </BrowserRouter>
         )
     }
 }
 
-export default withRouter(Router)
+export default Router
